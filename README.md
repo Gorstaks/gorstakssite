@@ -8,7 +8,7 @@
 
 ##  Overview
 
-gorstak-site is a clean, modern portfolio website showcasing Gorstak's GitHub projects. Built with vanilla HTML, CSS, and JavaScript, it provides an elegant interface for browsing repositories with search and filtering capabilities. It is hosted on GitHub Pages under the `psihijatrija` account at the custom domain `gorstak.eu`.
+gorstak-site is a clean, modern portfolio website showcasing Gorstak's GitHub projects. Built with vanilla HTML, CSS, and JavaScript, it provides an elegant interface for browsing repositories with search and filtering capabilities. It is hosted on GitHub Pages under the `gorstaks` account at the custom domain `gorstak.eu`.
 
 ---
 
@@ -42,7 +42,7 @@ gorstak-site is a clean, modern portfolio website showcasing Gorstak's GitHub pr
 ##  Deployment
 
 ### GitHub Pages
-1. Push to the `main` branch of `psihijatrija/gorstakssite`
+1. Push to the `main` branch of `gorstaks/gorstakssite`
 2. Settings -> Pages -> Source: "Deploy from a branch" (or the included Actions workflow)
 3. The `Deploy GitHub Pages` workflow publishes the site on every push to `main`
 
@@ -50,7 +50,7 @@ gorstak-site is a clean, modern portfolio website showcasing Gorstak's GitHub pr
 1. `CNAME` contains `gorstak.eu`
 2. DNS at the registrar (OVH):
    - Apex `@` A records -> GitHub Pages IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `www` CNAME -> `psihijatrija.github.io.`
+   - `www` CNAME -> `gorstaks.github.io.`
 3. Enable "Enforce HTTPS" in Settings -> Pages once the certificate provisions
 
 ### Local Testing
@@ -79,7 +79,7 @@ http://localhost:8000
       "language": "C#",
       "stars": 150,
       "forks": 25,
-      "url": "https://github.com/psihijatrija/Sentinel",
+      "url": "https://github.com/gorstaks/Sentinel",
       "category": "security",
       "tags": ["edr", "security", "windows"]
     }
@@ -167,7 +167,7 @@ Edit CSS variables in `index.html`:
   "language": "Python",
   "stars": 0,
   "forks": 0,
-  "url": "https://github.com/psihijatrija/ProjectName",
+  "url": "https://github.com/gorstaks/ProjectName",
   "category": "tools",
   "tags": ["python", "automation"]
 }

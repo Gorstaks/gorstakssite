@@ -1,4 +1,4 @@
 {
-  "users": ["psihijatrija"],
-  "excludeRepos": ["psihijatrija/gorstakssite", "psihijatrija/GorstaksAI", "psihijatrija/FTTS"]
+  "users": ["gorstaks"],
+  "excludeRepos": ["gorstaks/gorstakssite", "gorstaks/GorstaksAI", "gorstaks/FTTS"]
 }
