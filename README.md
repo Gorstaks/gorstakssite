@@ -8,7 +8,7 @@
 
 ## Overview
 
-gorstak-site is a single static page. The left column holds the profile and social links. The main column links to the download folders on MediaFire and Pixeldrain. It is hosted on GitHub Pages under the `gorstaks` account at the custom domain `gorstak.eu`.
+gorstak-site is a single static page with one centered column, top to bottom: icon, name and description, the Gorstaks AI and FTTS buttons, a row of social links, then the MediaFire and Pixeldrain download buttons. It is hosted on GitHub Pages under the `gorstaks` account at the custom domain `gorstak.eu`.
 
 ---
 

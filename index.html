@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goran Stambuk - Downloads</title>
+  <title>Goran Stambuk - Gorstak</title>
   <meta name="description" content="Goran Stambuk (Gorstak) - security tools, system utilities, and apps.">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <style>
@@ -33,151 +33,120 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Two-column layout: profile sidebar + main content */
-    .layout {
-      max-width: 1280px;
+    /* Single centered column, top to bottom */
+    .page {
+      max-width: 640px;
       margin: 0 auto;
-      padding: 1.5rem 2rem 3rem;
-      display: grid;
-      grid-template-columns: 296px 1fr;
-      gap: 2rem;
-      align-items: start;
+      padding: 2.5rem 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
     }
 
-    /* ===== Sidebar (profile) ===== */
-    .sidebar { position: sticky; top: 1.5rem; }
-
+    /* 1. Icon */
     .avatar {
-      width: 260px; max-width: 100%;
-      aspect-ratio: 1;
+      width: 160px; height: 160px;
       border-radius: 50%;
       object-fit: cover;
       border: 1px solid var(--border);
       background: #000;
-      display: block;
-      margin-bottom: 1rem;
     }
 
-    .sidebar h1 { font-size: 1.6rem; font-weight: 600; line-height: 1.25; }
-    .sidebar .handle { font-size: 1.25rem; font-weight: 300; color: var(--text-dim); margin-bottom: 0.9rem; }
-    .sidebar .bio { font-size: 1rem; margin-bottom: 1rem; }
+    /* 2. Name, handle, description */
+    .identity h1 { font-size: 1.6rem; font-weight: 600; line-height: 1.25; }
+    .identity .handle { font-size: 1.1rem; color: var(--text-dim); margin-top: 0.2rem; }
+    .identity .bio { font-size: 1rem; margin-top: 0.75rem; max-width: 520px; }
 
-    .highlight-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.1rem 0; }
-    .hl-btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.4rem 0.85rem; border-radius: 6px;
-      background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 600;
+    /* Shared button base */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.55rem 1rem; border-radius: 6px; border: 1px solid var(--border);
+      background: var(--tag-bg); color: var(--text); font-size: 0.9rem; font-weight: 600;
+      transition: border-color 0.15s, background 0.15s;
     }
-    .hl-btn:hover { background: var(--accent-hover); text-decoration: none; }
-    .hl-btn svg { width: 15px; height: 15px; }
-    .hl-btn.ghost { background: var(--tag-bg); color: var(--text); border: 1px solid var(--border); }
-    .hl-btn.ghost:hover { border-color: var(--text-dim); }
+    .btn:hover { border-color: var(--text-dim); text-decoration: none; }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-    .sidebar-links { display: flex; flex-direction: column; gap: 0.55rem; }
-    .sidebar-link {
-      display: flex; align-items: center; gap: 0.6rem;
-      color: var(--text); font-size: 0.9rem;
-    }
-    .sidebar-link:hover { color: var(--accent); text-decoration: none; }
-    .sidebar-link svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-dim); }
-    .sidebar-link:hover svg { color: var(--accent); }
+    /* 3. Gorstaks AI and FTTS */
+    .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 
-    /* ===== Main column: downloads ===== */
-    .main-head { margin-bottom: 1rem; }
-    .main-head h2 { font-size: 1rem; font-weight: 600; }
-    .main-intro { color: var(--text-dim); font-size: 0.9rem; margin-top: 0.4rem; }
+    /* 4. Social links, one horizontal row */
+    .social .btn { color: var(--text-dim); }
+    .social .btn:hover { color: var(--text); }
+    .social .btn svg { color: currentColor; }
 
-    .download-panel {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.75rem 1.5rem; text-align: center;
-    }
-    .download-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
-    .download-btn {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.85rem 2rem; background: var(--green); color: #fff;
-      border-radius: 8px; font-size: 1rem; font-weight: 600;
-    }
-    .download-btn:hover { filter: brightness(1.1); text-decoration: none; }
-    .download-btn svg { width: 20px; height: 20px; }
-    .download-note { color: var(--text-dim); font-size: 0.8rem; margin-top: 0.9rem; }
+    /* 5. Downloads */
+    .downloads .btn { background: var(--green); border-color: var(--green); color: #fff; padding: 0.8rem 1.75rem; font-size: 1rem; }
+    .downloads .btn:hover { filter: brightness(1.1); border-color: var(--green); }
+    .downloads .btn svg { width: 20px; height: 20px; }
+    .download-note { color: var(--text-dim); font-size: 0.8rem; }
 
-    .footer { text-align: center; padding: 2rem 0 0; color: var(--text-dim); font-size: 0.8rem; }
-
-    @media (max-width: 900px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; }
-      .avatar { width: 120px; }
-    }
+    .footer { color: var(--text-dim); font-size: 0.8rem; padding-top: 1rem; }
   </style>
 </head>
 <body>
-  <div class="layout">
-    <!-- Sidebar / profile -->
-    <aside class="sidebar">
-      <img class="avatar" src="assets/logo.png" alt="Gorstak logo"
-           onerror="this.onerror=null;this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Crect width='260' height='260' fill='%23161b22'/%3E%3Ctext x='50%25' y='56%25' font-size='110' fill='%232f81f7' text-anchor='middle' font-family='sans-serif'%3EG%3C/text%3E%3C/svg%3E&quot;">
+  <main class="page">
+
+    <img class="avatar" src="assets/logo.png" alt="Gorstak logo"
+         onerror="this.onerror=null;this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='%23161b22'/%3E%3Ctext x='50%25' y='56%25' font-size='70' fill='%232f81f7' text-anchor='middle' font-family='sans-serif'%3EG%3C/text%3E%3C/svg%3E&quot;">
+
+    <div class="identity">
       <h1>Goran Stambuk</h1>
-      <div class="handle">Gorstak</div>
+      <div class="handle">@gorstaks</div>
       <p class="bio">I build open-source software for Windows: endpoint detection &amp; response, system hardening and optimization tools, browsers, and everyday utilities.</p>
+    </div>
 
-      <div class="highlight-links">
-        <a class="hl-btn" href="https://gorstaks.github.io/GorstaksAI/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 1 4 4c0 1.95-1.4 3.57-3.25 3.92L12 11v2m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>
-          Gorstaks AI
-        </a>
-        <a class="hl-btn ghost" href="https://gorstaks.github.io/FTTS/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7l4.7 3.4-1.8 5.5H9.1L7.3 10.4 12 7z"/></svg>
-          FTTS
-        </a>
-      </div>
+    <div class="row">
+      <a class="btn btn-primary" href="https://gorstaks.github.io/GorstaksAI/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 1 4 4c0 1.95-1.4 3.57-3.25 3.92L12 11v2m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>
+        Gorstaks AI
+      </a>
+      <a class="btn" href="https://gorstaks.github.io/FTTS/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7l4.7 3.4-1.8 5.5H9.1L7.3 10.4 12 7z"/></svg>
+        FTTS
+      </a>
+    </div>
 
-      <div class="sidebar-links">
-        <a class="sidebar-link" href="https://github.com/gorstaks" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.21 11.19.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.71-4.04-1.58-4.04-1.58-.55-1.37-1.33-1.74-1.33-1.74-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.21 1.84 1.21 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.3-5.47-5.79 0-1.28.47-2.33 1.24-3.15-.13-.3-.54-1.5.11-3.12 0 0 1.01-.32 3.3 1.2a11.6 11.6 0 0 1 3-.39c1.02 0 2.05.13 3 .39 2.28-1.52 3.29-1.2 3.29-1.2.65 1.62.24 2.82.12 3.12.77.82 1.23 1.87 1.23 3.15 0 4.5-2.8 5.48-5.48 5.77.43.36.81 1.08.81 2.18 0 1.58-.01 2.85-.01 3.24 0 .31.21.68.83.56A12.03 12.03 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"/></svg>
-          <span>@gorstaks</span>
-        </a>
-        <a class="sidebar-link" href="https://www.instagram.com/goranstambukzadar/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-          <span>@goranstambukzadar</span>
-        </a>
-        <a class="sidebar-link" href="https://x.com/stambuk_goran" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span>@stambuk_goran</span>
-        </a>
-        <a class="sidebar-link" href="https://www.reddit.com/user/Gorstak-Zadar/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701z"/></svg>
-          <span>u/Gorstak-Zadar</span>
-        </a>
-        <a class="sidebar-link" href="https://www.youtube.com/@gorstak-zadar" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          <span>@gorstak-zadar</span>
-        </a>
-      </div>
-    </aside>
+    <nav class="row social">
+      <a class="btn" href="https://github.com/gorstaks" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.21 11.19.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.71-4.04-1.58-4.04-1.58-.55-1.37-1.33-1.74-1.33-1.74-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.21 1.84 1.21 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.3-5.47-5.790 0-1.28.47-2.33 1.24-3.15-.13-.3-.54-1.5.11-3.12 0 0 1.01-.32 3.3 1.2a11.6 11.6 0 0 1 3-.39c1.02 0 2.05.13 3 .39 2.28-1.52 3.29-1.2 3.29-1.2.65 1.62.24 2.82.12 3.12.77.82 1.23 1.87 1.23 3.15 0 4.5-2.8 5.48-5.48 5.77.43.36.81 1.08.81 2.18 0 1.58-.01 2.85-.01 3.24 0 .31.21.68.83.56A12.03 12.03 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="https://www.instagram.com/goranstambukzadar/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Instagram
+      </a>
+      <a class="btn" href="https://x.com/stambuk_goran" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X
+      </a>
+      <a class="btn" href="https://www.reddit.com/user/Gorstak-Zadar/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701z"/></svg>
+        Reddit
+      </a>
+      <a class="btn" href="https://www.youtube.com/@gorstak-zadar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+    </nav>
 
-    <!-- Main: downloads -->
-    <main class="main">
-      <div class="main-head">
-        <h2>Downloads</h2>
-        <p class="main-intro">Releases for every project, in one folder on each host.</p>
-      </div>
+    <div class="row downloads">
+      <a class="btn" href="https://www.mediafire.com/folder/pjwf43kf1at9t/Gorstak" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+        Download on MediaFire
+      </a>
+      <a class="btn" href="https://pixeldrain.com/l/33BuY9Sv" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+        Download on Pixeldrain
+      </a>
+    </div>
+    <p class="download-note">Both links point to the same folder of releases.</p>
 
-      <div class="download-panel">
-        <div class="download-btns">
-          <a class="download-btn" href="https://www.mediafire.com/folder/pjwf43kf1at9t/Gorstak" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-            Download on MediaFire
-          </a>
-          <a class="download-btn" href="https://pixeldrain.com/l/33BuY9Sv" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-            Download on Pixeldrain
-          </a>
-        </div>
-        <p class="download-note">Both links point to the same folder of releases.</p>
-      </div>
-
-      <footer class="footer"><p>Goran Stambuk &middot; Hosted in the EU</p></footer>
-    </main>
-  </div>
+    <footer class="footer">Goran Stambuk &middot; Hosted in the EU</footer>
+  </main>
 </body>
 </html>
